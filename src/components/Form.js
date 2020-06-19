@@ -5,9 +5,10 @@ export default function Form(props){
 
     const {
         values,
-        onSubmit,
         onInputChange,
         onCheckboxChange,
+        onSubmit,
+        disabled,
         errors,
     } = props
 
@@ -15,7 +16,7 @@ export default function Form(props){
         <form>
             <div>
                 <h1>Build Your Pizza</h1>
-                {/* <button disabled={disabled}>Add To Order</button> */}
+                <button disabled={disabled}>Add To Order</button>
 
                 <div className='errors'>
                     <div>{errors.name}</div>
@@ -49,48 +50,50 @@ export default function Form(props){
                             <option value='X-Large'>Extra Large 14"</option>
                         </select>
                     </label>
+                
+                    <div className="form-checkboxes">
+                        <h3>Select Your Toppings</h3>
+                        <label>Extra Cheese
+                            <input
+                            name="cheese"
+                            type="checkbox"
+                            checked={values.toppings.cheese}
+                            onChange={onCheckboxChange}
+                            />
+                        </label>
+                        <label>Pepperoni
+                            <input
+                            name="pepperoni"
+                            type="checkbox"
+                            checked={values.toppings.pepperoni}
+                            onChange={onCheckboxChange}
+                            />
+                        </label>
+                        <label>Sausage
+                            <input
+                            name="sausage"
+                            type="checkbox"
+                            checked={values.toppings.sausage}
+                            onChange={onCheckboxChange}
+                            />
+                        </label>
+                        <label>Olives
+                            <input
+                            name="olives"
+                            type="checkbox"
+                            checked={values.toppings.olives}
+                            onChange={onCheckboxChange}
+                            />
+                        </label>
+                    </div>
 
-                    <h3>Select Your Toppings</h3>
-                    <label>Extra Cheese
-                        <input
-                        name="cheese"
-                        type="checkbox"
-                        checked={values.toppings.cheese}
-                        onChange={onCheckboxChange}
-                        />
-                    </label>
-                    <label>Pepperoni
-                        <input
-                        name="pepperoni"
-                        type="checkbox"
-                        checked={values.toppings.pepperoni}
-                        onChange={onCheckboxChange}
-                        />
-                    </label>
-                    <label>Sausage
-                        <input
-                        name="sausage"
-                        type="checkbox"
-                        checked={values.toppings.sausage}
-                        onChange={onCheckboxChange}
-                        />
-                    </label>
-                    <label>Olives
-                        <input
-                        name="olives"
-                        type="checkbox"
-                        checked={values.toppings.olives}
-                        onChange={onCheckboxChange}
-                        />
-                    </label>
-
-                    <label>Special Instructions
-                        <textarea
-                        name="instructions"
-                        value={values.instructions}
-                        onChange={onInputChange}
-                        />
-                    </label>
+                        <label>Special Instructions
+                            <textarea
+                            name="instructions"
+                            value={values.instructions}
+                            onChange={onInputChange}
+                            />
+                        </label>
                 </div>
             </div>
         </form>
