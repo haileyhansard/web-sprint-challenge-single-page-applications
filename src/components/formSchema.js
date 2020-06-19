@@ -17,9 +17,9 @@ instructions: Yup
 .string()
 .min(2, "Please include special instructions"),
 
-toppings: Yup
-.boolean()
-.oneOf([true], "Please select at least 1 topping"),
+// toppings: Yup
+// .boolean()
+// .oneOf([true], "Please select at least 1 topping"),
 
 })
 

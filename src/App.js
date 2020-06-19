@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Link } from "react-router-dom"
+import { Switch, Route, Link } from "react-router-dom"
 import axios from 'axios'
 import Form from './components/Form'
 import formSchema from './components/formSchema'
@@ -28,7 +28,8 @@ const initialFormErrors = {
 }
 
 const initialOrders = []
-const initialDisabled = false
+
+const initialDisabled = true
 
 
 export default function App() {
@@ -121,21 +122,28 @@ export default function App() {
       <nav className='store-header'>
         <h1>Lambda Eats</h1>
         <div className='nav-links'>
-          {/* 👉 STEP 3 - Make Links to navigate us Home (`/`) and Shop (`/items-list`) */}
-          {/* <Link to='/'>Home</Link>
-          <Link to='/xxx'>Help</Link> */}
+          <Link to='/'>Home</Link>
+          <Link to='/pizza'>Pizza?</Link>
+          <Switch>
+            <Route path="/pizza" >
+              <Form
+                values={formValues}
+                onInputChange={onInputChange}
+                onCheckboxChange={onCheckboxChange}
+                onSubmit={onSubmit}
+                disabled={disabled}
+                errors={errors} 
+              />
+              </Route>
+            {/* <Route path="/">
+              <App />
+            </Route> */}
+          </Switch>
         </div>
       </nav>
       <h1>We Love Pizza!</h1>
       <h3>Your favorite food delivery while coding</h3>
-      <Form
-        values={formValues}
-        onInputChange={onInputChange}
-        onCheckboxChange={onCheckboxChange}
-        onSubmit={onSubmit}
-        disabled={disabled}
-        errors={errors} 
-        />
+
 
       {orders.map(order => {
           return (

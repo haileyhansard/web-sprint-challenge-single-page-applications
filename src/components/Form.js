@@ -13,11 +13,10 @@ export default function Form(props){
     } = props
 
     return (
-        <form>
+        <form onSubmit={onSubmit}>
             <div>
                 <h1>Build Your Pizza</h1>
-                <button disabled={disabled}>Add To Order</button>
-
+                <button type="submit" disabled={disabled}>Add To Order</button>
                 <div className='errors'>
                     <div>{errors.name}</div>
                     <div>{errors.size}</div>
