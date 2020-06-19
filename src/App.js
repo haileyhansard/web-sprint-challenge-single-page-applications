@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Route, Link } from "react-router-dom"
 import axios from 'axios'
 import Form from './components/Form'
+import formSchema from './components/formSchema'
+import Order from './components/Order'
 import * as Yup from 'yup'
 
 
@@ -38,10 +40,9 @@ export default function App() {
 
   //Helpers
   const postNewOrder = newOrder => {
-    axios.post("https://reqres.in/api/order", order)
+    axios.post("https://reqres.in/api/order", newOrder)
     .then(response => {
-      console.log("Response", response.data)
-      updateOrder(response.data)
+      setOrder([...order, response.data])
     })
     .catch(err => {
       console.log("Error", err)
@@ -127,7 +128,7 @@ export default function App() {
         errors={errors} 
         />
 {
-  orders.map(order => {
+  order.map(order => {
     return (
       <Order key={order.id} details={order} />
     )

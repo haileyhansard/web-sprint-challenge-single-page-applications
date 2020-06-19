@@ -10,3 +10,5 @@ name: Yup
 .required("Name is required"),
 
 })
+
+export default formSchema;
