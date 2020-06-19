@@ -43,10 +43,10 @@ export default function Form(props){
                             onChange={onInputChange}         
                         >
                             <option value=''>- Select an option -</option>
-                            <option value='Small'>Small 8"</option>
-                            <option value='Medium'>Medium 10"</option>
-                            <option value='Large'>Large 12"</option>
-                            <option value='X-Large'>Extra Large 14"</option>
+                            <option value='Small'>Small</option>
+                            <option value='Medium'>Medium</option>
+                            <option value='Large'>Large</option>
+                            <option value='X-Large'>Extra Large</option>
                         </select>
                     </label>
                 
